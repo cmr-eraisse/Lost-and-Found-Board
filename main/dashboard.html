@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lost and Found Board</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="nav-links">
+				<a href="dashboard.html" class="active">Board</a>
+				<a href="add.html">Add Item</a>
+				<a href="history.html">History</a>
+			</div>
+		</nav>
+
+		<div class="page-header">
+			<div class="hero">
+				<h1>The Lost & Found Board</h1>
+				<p>
+					Lost something? Browse all posted items. Search, Filter, and Claim
+					what's yours.
+				</p>
+			</div>
+		</div>
+
+		<div class="status-bar">
+			<div class="stat">
+				<div class="dot stat_lost"></div>
+				Lost: <strong id="statusLost">0</strong>
+			</div>
+			<div class="stat">
+				<div class="dot stat_found"></div>
+				Found: <strong id="statusFound">0</strong>
+			</div>
+			<div class="stat">
+				<div class="dot stat_claimed"></div>
+				Claimed: <strong id="statusClaimed">0</strong>
+			</div>
+			<div class="stat" style="margin-left: auto">
+				<strong id="statTotal">0</strong> Total Items
+			</div>
+		</div>
+
+		<section class="main-container">
+			<div class="controls">
+				<div class="search-wrap">
+					<input
+						type="text"
+						id="searchInput"
+						placeholder="Search by name, description, or location…"
+					/>
+				</div>
+
+				<div class="filter-group" id="typeFilters">
+					<button class="filter-btn active" data-type="all">All Types</button>
+					<button class="filter-btn lost" data-type="lost">Lost</button>
+					<button class="filter-btn found" data-type="found">Found</button>
+				</div>
+
+				<div class="filter-group" id="statusFilters">
+					<button class="filter-btn active" data-status="all">
+						All Status
+					</button>
+					<button class="filter-btn open" data-status="open">Open</button>
+					<button class="filter-btn claimed" data-status="claimed">
+						Claimed
+					</button>
+				</div>
+			</div>
+
+			<div class="cards-grid" id="cardsGrid"></div>
+		</section>
+
+		<div
+			id="modal"
+			style="
+				display: none;
+				position: fixed;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.5);
+				z-index: 200;
+				overflow-y: auto;
+				padding: 40px 16px;
+			"
+		>
+			<div
+				style="
+					background: #fff;
+					border-radius: 16px;
+					max-width: 540px;
+					margin: 0 auto;
+					padding: 32px;
+					position: relative;
+				"
+			>
+				<button
+					onclick="closeModal()"
+					style="
+						position: absolute;
+						top: 16px;
+						right: 16px;
+						background: none;
+						border: none;
+						font-size: 1.4rem;
+						cursor: pointer;
+						color: #888;
+					"
+				>
+					✕
+				</button>
+				<div id="modalContent"></div>
+			</div>
+		</div>
+
+		<script type="module" src="board.js"></script>
+	</body>
+</html>

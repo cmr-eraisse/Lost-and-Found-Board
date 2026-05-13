@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add Item — Lost & Found Board</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="nav-links">
+				<a href="dashboard.html">Board</a>
+				<a href="add.html" class="active">Add Item</a>
+				<a href="history.html">History</a>
+			</div>
+		</nav>
+
+		<div class="page-header">
+			<div class="hero">
+				<h1>Post an Item</h1>
+				<p>Fill in the details below to report a lost or found item.</p>
+			</div>
+		</div>
+
+		<div class="form-page">
+			<div class="container">
+				<div class="form-card">
+					<form id="addItemForm" novalidate>
+						<div class="form-group" style="margin-bottom: 24px">
+							<label>Item Type <span class="req">*</span></label>
+							<div class="type-selector">
+								<button type="button" class="type-btn lost" data-type="lost">
+									I Lost Something
+								</button>
+								<button type="button" class="type-btn found" data-type="found">
+									I Found Something
+								</button>
+							</div>
+							<input type="hidden" id="itemType" name="itemType" required />
+						</div>
+
+						<div class="form-row">
+							<div class="form-group">
+								<label for="itemName"
+									>Item Name <span class="req">*</span></label
+								>
+								<input
+									type="text"
+									id="itemName"
+									placeholder="e.g. Black Wallet"
+									required
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="category"
+									>Category <span class="req">*</span></label
+								>
+								<select id="category" required>
+									<option value="">Select a category</option>
+									<option>Accessories</option>
+									<option>Electronics</option>
+									<option>Documents</option>
+									<option>Clothing</option>
+									<option>Bags</option>
+									<option>School Supplies</option>
+									<option>Keys</option>
+									<option>Wallets</option>
+									<option>Others</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="location"
+									>Location <span class="req">*</span></label
+								>
+								<input
+									type="text"
+									id="location"
+									placeholder="e.g. Room 201-T, Library 3F"
+									required
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="contact"
+									>Contact Info <span class="req">*</span></label
+								>
+								<input
+									type="text"
+									id="contact"
+									placeholder="Phone number or email"
+									required
+								/>
+							</div>
+
+							<div class="form-group full">
+								<label for="description"
+									>Description <span class="req">*</span></label
+								>
+								<textarea
+									id="description"
+									placeholder="Describe the item as detailed as possible; color, brand, distinguishing features..."
+									required
+									style="resize: none"
+								></textarea>
+							</div>
+
+							<div class="form-group full">
+								<label for="imageUrl"
+									>Image URL
+									<span style="color: var(--muted); font-weight: 400"
+										>(optional, but recommended)</span
+									></label
+								>
+								<input
+									type="url"
+									id="imageUrl"
+									placeholder="e.g., https://example.com/photo.jpg"
+								/>
+								<span class="hint"
+									>Paste a direct link to an image of the item</span
+								>
+							</div>
+						</div>
+
+						<div
+							id="duplicateWarning"
+							style="
+								display: none;
+								background: #fff3cd;
+								border: 1.5px solid #ffc107;
+								border-radius: 8px;
+								padding: 12px 16px;
+								margin: 8px 0;
+								font-size: 0.88rem;
+								color: #856404;
+							"
+						>
+							A similar item was recently posted. Please check the board before
+							submitting to avoid duplicates.
+						</div>
+
+						<div class="form-actions">
+							<button
+								type="submit"
+								class="btn btn-primary btn-lg"
+								id="submitBtn"
+							>
+								Post Item
+							</button>
+							<button
+								type="button"
+								class="btn btn-outline"
+								onclick="resetForm()"
+							>
+								Reset
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script type="module" src="add.js"></script>
+	</body>
+</html>
