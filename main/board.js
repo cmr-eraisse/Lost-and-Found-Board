@@ -120,15 +120,13 @@ function buildCard(item) {
         <div class="card-title">${escHtml(item.itemname)}</div>
         <div class="card-desc">${escHtml(item.description)}</div>
         <div class="card-meta">
-          <div class="meta-row"><span>📍</span>${escHtml(item.location)}</div>
-          <div class="meta-row"><span>📞</span>${escHtml(item.contact)}</div>
           <div class="meta-row"><span>📅</span>${dateStr}</div>
         </div>
       </div>
       <div class="card-footer">
         ${claimBtn}
-        <button class="btn btn-outline" onclick="openModal('${item.id}')">👁 View</button>
-        <button class="btn btn-danger"  onclick="confirmDelete('${item.id}')">🗑</button>
+        <button class="btn btn-outline" onclick="openModal('${item.id}')">👁 More</button>
+        
       </div>
     </div>`;
 }
@@ -204,9 +202,9 @@ function openModal(id) {
     <p><strong>Note:</strong></p>
     <p style="color:var(--text-light);margin-bottom:18px;">${escHtml(item.description)}</p>
     <div class="modal-desc" style="display:flex;flex-direction:column;gap:8px;font-size:0.9rem;">
-      <div><strong>Location:</strong> ${escHtml(item.location)}</div>
-      <div><strong>Contact:</strong> ${escHtml(item.contact)}</div>
-      <div><strong>Posted:</strong> ${dateStr}</div>
+      <div><strong>📍 Location Last Seen/Found:</strong> ${escHtml(item.location)}</div>
+      <div><strong>📞 Contact:</strong> ${escHtml(item.contact)}</div>
+      <div><strong>📅 Posted:</strong> ${dateStr}</div>
       ${claimedStr ? `<div>✅ <strong>Claimed:</strong> ${claimedStr}</div>` : ""}
     </div>
     <div style="display:flex;gap:10px;margin-top:24px;">
