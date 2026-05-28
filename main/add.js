@@ -66,7 +66,7 @@ document.getElementById("addItemForm").addEventListener("submit", async (e) => {
 
 	const errors = validateForm();
 	if (errors.length) {
-		showToast("⚠️ " + errors[0], "error");
+		showToast(" " + errors[0], "error");
 		return;
 	}
 
